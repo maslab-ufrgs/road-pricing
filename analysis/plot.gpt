@@ -1,0 +1,6 @@
+set term gif
+set output 'waiting.gif'
+plot './summary1.csv' using 1:3 with lines, './summary10.csv' using 1:3 with lines, './summary20.csv' using 1:3 with lines,'./summary30.csv' using 1:3 with lines,'./summary40.csv' using 1:3 with lines,'./summary50.csv' using 1:3 with lines
+
+set output 'ended.gif'
+plot './summary1.csv' using 1:4 with lines, './summary10.csv' using 1:4 with lines, './summary20.csv' using 1:4 with lines,'./summary30.csv' using 1:4 with lines,'./summary40.csv' using 1:4 with lines,'./summary50.csv' using 1:4 with lines

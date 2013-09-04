@@ -1,0 +1,35 @@
+<ivc-experiment>
+	<input-output>
+		<net-file value="../../../../roadnets/arterials/arterials-nocft.net.xml" />
+		<drivers-file value="../../../../roadnets/arterials/8500-now-allhalf.drv" />
+		<result-prefix value="ql" />
+		<!-- <output-path value="" /> -->
+	</input-output>
+	
+	<parameters>
+		<iterations value="400" />
+		<aux-demand value="0" />
+		<link-manager-class value="QLearningLinkManager" />
+		<ql-alpha value="0.1" />
+		<time-limit value="10000" />
+	<!--	<broadcast-prices value="true" /> -->
+	</parameters>
+	
+	<qlparams>
+		<alpha value="0.1" />
+		<epsilon_begin value="1.0" />
+		<epsilon_end value="0.01" />
+		<exploration value="200" />
+	</qlparams>
+	
+	<sumo>
+		<use-gui value="false" />
+		<port value="8001" />
+		<warm-up-time value="0" />
+		<summary-output-prefix value="summary" />
+	</sumo>
+	
+</ivc-experiment>	
+ 
+
+
