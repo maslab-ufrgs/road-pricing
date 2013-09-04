@@ -1,0 +1,85 @@
+<tazs>
+	<taz id="57">
+		<tazSource id="57to56" weight="1.0"/>
+		<tazSink id="56to57" weight="1.0"/>
+	</taz>
+	<taz id="62">
+		<tazSource id="62to61" weight="1.0"/>
+		<tazSink id="61to62" weight="1.0"/>
+	</taz>
+	<taz id="58">
+		<tazSource id="58to55" weight="1.0"/>
+		<tazSource id="58to61" weight="1.0"/>
+		<tazSink id="55to58" weight="1.0"/>
+		<tazSink id="61to58" weight="1.0"/>
+	</taz>
+	<taz id="60">
+		<tazSource id="60to43" weight="1.0"/>
+		<tazSource id="60to61" weight="1.0"/>
+		<tazSource id="60to59" weight="1.0"/>
+		<tazSink id="43to60" weight="1.0"/>
+		<tazSink id="61to60" weight="1.0"/>
+		<tazSink id="59to60" weight="1.0"/>
+	</taz>
+	<taz id="51">
+		<tazSource id="51to50" weight="1.0"/>
+		<tazSource id="51to49" weight="1.0"/>
+		<tazSink id="50to51" weight="1.0"/>
+		<tazSink id="49to51" weight="1.0"/>
+	</taz>
+	<taz id="50">
+		<tazSource id="50to49" weight="1.0"/>
+		<tazSource id="50to51" weight="1.0"/>
+		<tazSource id="50to47" weight="1.0"/>
+		<tazSource id="50to21" weight="1.0"/>
+		<tazSink id="49to50" weight="1.0"/>
+		<tazSink id="51to50" weight="1.0"/>
+		<tazSink id="21to50" weight="1.0"/>
+	</taz>
+	<taz id="52">
+		<tazSource id="52to51" weight="1.0"/>
+		<tazSink id="51to52" weight="1.0"/>
+	</taz>
+	<taz id="37">
+		<tazSource id="37to38" weight="1.0"/>
+		<tazSource id="37to25" weight="1.0"/>
+		<tazSink id="38to37" weight="1.0"/>
+		<tazSink id="25to37" weight="1.0"/>
+	</taz>
+	<taz id="25">
+		<tazSource id="25to4" weight="1.0"/>
+		<tazSource id="25to37" weight="1.0"/>
+		<tazSource id="25to2" weight="1.0"/>
+		<tazSource id="25to26" weight="1.0"/>
+		<tazSink id="4to25" weight="1.0"/>
+		<tazSink id="37to25" weight="1.0"/>
+		<tazSink id="2to25" weight="1.0"/>
+		<tazSink id="26to25" weight="1.0"/>
+	</taz>
+	<taz id="6">
+		<tazSource id="6to5" weight="1.0"/>
+		<tazSink id="5to6" weight="1.0"/>
+	</taz>
+	<taz id="11">
+		<tazSource id="11to8" weight="1.0"/>
+		<tazSink id="8to11" weight="1.0"/>
+	</taz>
+	<taz id="10">
+		<tazSource id="10to8" weight="1.0"/>
+		<tazSink id="8to10" weight="1.0"/>
+	</taz>
+	<taz id="24">
+		<tazSource id="24to23" weight="1.0"/>
+		<tazSink id="23to24" weight="1.0"/>
+	</taz>
+	<taz id="14">
+		<tazSource id="14to12" weight="1.0"/>
+		<tazSource id="14to17" weight="1.0"/>
+		<tazSink id="12to14" weight="1.0"/>
+		<tazSink id="17to14" weight="1.0"/>
+	</taz>
+	<taz id="18">
+		<tazSource id="18to17" weight="1.0"/>
+		<tazSink id="17to18" weight="1.0"/>
+	</taz>
+</tazs>
