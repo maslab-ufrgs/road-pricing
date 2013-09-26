@@ -1,7 +1,13 @@
 '''
+Reads several summary.xml files (each one with global metrics for a iteration) 
+and outputs a single .csv file with the desired metrics in a one-per-line basis.
+The metric written in the .csv file corresponds to the value in a given timestep of the 
+simulation 
+
 Created on 04/03/2013
 
 @author: artavares
+
 '''
 
 import xml.etree.ElementTree as ET
@@ -37,7 +43,7 @@ def summarize(iteration_number, output, fields, prefix = 'summary', timestep = -
         
         
 if __name__ == '__main__':
-    optParser = OptionParser()
+    optParser = OptionParser(description='''Reads a series of summary.xml files and outputs a single .csv file''')
     
     optParser.add_option("-p", "--prefix", default='summary',
                             help="the prefix of the summary files to be summarized")

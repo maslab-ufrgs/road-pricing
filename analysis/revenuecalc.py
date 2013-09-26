@@ -1,4 +1,7 @@
 '''
+Writes the mean or total revenue of the link managers along the iterations
+in an output file
+
 Created on Jun 14, 2013
 
 @author: anderson

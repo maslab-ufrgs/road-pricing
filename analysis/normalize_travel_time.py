@@ -1,4 +1,14 @@
 '''
+Outputs the average of the normalized travel time of drivers in a given experiment.
+
+Normalized travel time in a given edge 'e' is given as:
+
+n = t / (3.0 * e.length / e.getspeed)
+
+where t is the travel time without normalization.  3.0 * e.length / e.getspeed
+corresponds to the travel time in the lowest level of service in urban roads
+according to the Highway Capacity Manual, 2000
+
 Created on May 17, 2013
 
 @author: anderson
@@ -72,7 +82,7 @@ def normalize(net_file_name, routeinfo_prefix, num_iterations, factor, first, la
     
 def parse_args():
     
-    parser = OptionParser()
+    parser = OptionParser(description='''Outputs the normalized travel time of drivers of a given experiment''')
             
     parser.add_option(
         '-o', '--output-prefix', type=str, default='normtt.csv',

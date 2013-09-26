@@ -1,4 +1,29 @@
 '''
+This script groups the performance of drivers according to their preferences. 
+
+Each metric is written to one file (prefix is specified by the user):
+
+- travel time: prefix_tt.dvs
+- credits expenditure: prefix_xps.dvs
+- cost(z): prefix_z.dvs
+- number of drivers: prefix_count.dvs
+
+A time window can be specified. In this case, the metrics are written for 
+drivers that started and finished trips within the time window.
+
+In the output files, a column contains the average value of the metric for
+the drivers whose preference value is less than the specified in the first row. 
+Each row contais data from one experiment iteration 
+
+For example, if the first row contains:
+
+#it,.33,.66,1.0
+
+Than the first column from the second row onwards contains the iteration, the 
+second column contains the average value of the metric for drivers with preference
+in the interval [0:.33), the third row contains it for the interval [0:.66) and the 
+third contains it for the interval [.66:1]
+
 Created on 06/03/2013
 
 @author: artavares

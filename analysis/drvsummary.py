@@ -1,4 +1,14 @@
 '''
+Deprecated. Use drvcategories.py instead.
+
+This script writes a output file with average values of metrics for
+ drivers with a same preference value.
+One file is written for each preference value found in the input
+result files.
+
+The metrics written are number of drivers with trips within a time window,
+travel time, credits expenditure and cost (z) of these drivers.   
+
 Created on 06/03/2013
 
 @author: artavares

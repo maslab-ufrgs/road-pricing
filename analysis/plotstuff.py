@@ -1,7 +1,12 @@
 '''
+This script generates plots for specific experiments.
+
+It was once used to visualize data in order to discuss some results.
+
 Created on May 31, 2013
 
 @author: anderson
+
 '''
 import numpy as np
 import matplotlib.pyplot as plt

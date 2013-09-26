@@ -1,4 +1,7 @@
 '''
+This script outputs the mean reward of the link managers 
+along the iterations.
+
 Created on Jun 13, 2013
 
 @author: anderson

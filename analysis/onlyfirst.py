@@ -1,4 +1,10 @@
 '''
+This script is similiar to drvcategories.py. The only difference is that
+it captures which drivers had their trips starting and finishing within a 
+time window in the first iteration.
+
+The output metrics for all iterations are for these drivers only.
+
 Created on 06/03/2013
 
 @author: artavares

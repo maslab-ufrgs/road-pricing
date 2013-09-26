@@ -2,11 +2,14 @@
 Cleans everything outside the <maintag>..</maintag> 
 of a xml document
 
+This sometimes is necessary because SUMO generates comments containing double 
+dashes (--) and this may cause problems while parsing a xml file
+
 Created on 22/02/2013
 
 @author: artavares
-'''
-    
+
+'''    
 def clean_xml(filename, rootname):
     f = open(filename)
     lines = f.readlines()

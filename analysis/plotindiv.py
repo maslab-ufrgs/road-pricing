@@ -1,7 +1,14 @@
 '''
+This script has several functions to plot metrics related to drivers' performance.
+
+A good way to use it is by running: python -i plotindiv.py
+
+This way, the functions can be called by the user in the interactive console.
+
 Created on 14/06/2013
 
 @author: artavares
+
 '''
 
 import numpy as np
@@ -60,7 +67,7 @@ def plotabs(fname=None, lcols=3,axis=[0,400,.7,1.15],oprefix=None,ylabel='desemp
     
 def tabulate(fname=None, lcols=2,axis=[0,400,.7,1.31],oprefix=None,ylabel='desempenho comparado',figsz=TALL_FIG_SIZE):
     '''
-    OK
+    Prints mean and standard deviation of drivers' performance metrics
     
     '''
     if fname is None:
@@ -85,7 +92,8 @@ def tabulate(fname=None, lcols=2,axis=[0,400,.7,1.31],oprefix=None,ylabel='desem
 
 def plot(fname=None, lcols=2,axis=[0,400,.7,1.31],oprefix=None,ylabel='desempenho comparado',figsz=TALL_FIG_SIZE):
     '''
-    OK
+    Plots a metric of drivers' performance. Axes are hard-coded and must be
+    commented / uncommented to plot a given metric in correct scale.
     
     '''
     if fname is None:
@@ -183,6 +191,10 @@ def plot(fname=None, lcols=2,axis=[0,400,.7,1.31],oprefix=None,ylabel='desempenh
     plt.show()
 
 def plotflow(outputs=[],lcols=3,axis=[0,400,10000,24000]):
+    '''
+    Copied from plotglobals.py... use the one in there instead of this
+    
+    '''
     fdata,qdata = get_data('global.csv',delim='\t')
     gwrdata = np.genfromtxt('dua/global.csv', skip_header=1, delimiter='\t')
     

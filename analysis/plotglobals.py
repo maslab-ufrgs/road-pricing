@@ -1,4 +1,10 @@
 '''
+This script has several functions to plot metrics related to global performance.
+
+A good way to use it is by running: python -i plotglobals.py
+
+This way, the functions can be called by the user in the interactive console.
+
 Created on 14/06/2013
 
 @author: artavares

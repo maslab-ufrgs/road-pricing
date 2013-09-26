@@ -1,4 +1,9 @@
 '''
+Deprecated. Use drvcategories.py instead.
+
+This script is similar to drvsummary.py except that it does not outputs
+the number of drivers with a trip within a time window.
+
 Created on 22/02/2013
 
 @author: artavares
