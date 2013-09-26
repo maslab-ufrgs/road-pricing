@@ -1,4 +1,7 @@
 '''
+Provides a method for selecting an item with chance proportional to
+its weight
+
 Created on Jan 3, 2013
 
 @author: anderson

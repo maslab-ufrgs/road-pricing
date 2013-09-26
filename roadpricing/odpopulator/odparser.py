@@ -1,7 +1,11 @@
 '''
+Provides methods and classes to parse OD matrices specified
+according to SUMO (v. 0.16.0) format
+
 Created on Jan 2, 2013
 
 @author: anderson
+
 '''
 from tokenize import generate_tokens
 from odpopulator import odmatrix

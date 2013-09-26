@@ -1,7 +1,19 @@
 '''
+This script can be used standalone or imported in another script.
+
+As a standalone, it connects to a SUMO simulation and inserts vehicles
+at every timestep until the road network load reaches the desired level.
+User can specify how long the load should be controlled.
+
+Each vehicle is inserted according to a given OD matrix.
+
+When imported, the user can use the ODKeeper methods to control the load
+and insert vehicles in the road network
+
 Created on Jan 3, 2013
 
 @author: anderson
+
 '''
 import os, sys
 import random

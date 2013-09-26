@@ -1,4 +1,7 @@
 '''
+Contains classes to work with OD matrices defined according to 
+SUMO's specification
+
 Created on Jan 2, 2013
 
 @author: anderson

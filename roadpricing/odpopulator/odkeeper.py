@@ -1,7 +1,18 @@
 '''
+This script can be used standalone or imported in another script.
+
+As a standalone, it connects to a SUMO simulation and when a vehicle leaves
+the simulation, it is replaced by a new one.
+
+The origins and destinations of inserted vehicles respect a given OD matrix.
+
+When imported, the user can use the ODKeeper methods act and replace
+vehicles in the road network
+
 Created on Jan 12, 2013
 
 @author: anderson
+
 '''
 import traci, sumolib
 import os, sys
