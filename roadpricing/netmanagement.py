@@ -1,4 +1,6 @@
 '''
+This module contains classes and functions related to the Link Managers
+
 Created on Nov 17, 2012
 
 @author: anderson
@@ -90,9 +92,9 @@ class NetworkManager(object):
 
 class LinkManager(object):
     '''
-    Represents a link manager
-    '''
+    Represents a standard link manager
     
+    '''
     DEFAULT_CAR_SIZE = 5 #(meters) used to calculate the capacity of the link
     
     MAX_PRICE = 100
@@ -276,8 +278,6 @@ class GreedyLinkManager(LinkManager):
     already the lowest (and link is more occupied)
      
     '''
-    
-
     def commute_finished_action(self):
         alternative_managers = self.find_alternative_managers()
         alt_avg_occ = self.average_occ_of_alternatives()
@@ -433,7 +433,6 @@ class OldQLinkManager(QLearningLinkManager):
     of operating the link with the given price.
     
     '''
-    
     def commute_finished_action(self):
         '''
         Updates Q-table and chooses a new price.

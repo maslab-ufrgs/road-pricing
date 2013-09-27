@@ -1,9 +1,14 @@
 '''
+drivers module
+
+Provides functions to parse files specifying drivers' attributes.
+Also provides classes and functions related to drivers representation
+
 Created on 12/11/2012
 
 @author: artavares
-'''
 
+'''
 import sumolib
 import traci
 import sys

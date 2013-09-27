@@ -1,4 +1,8 @@
 '''
+This is the main script. The one to be called to performe road pricing
+experiments. It is preferred to pass experiment parameters via a 
+xml configuration file instead of passing each one via command line.
+ 
 Created on Feb 12, 2013
 
 @author: anderson
@@ -64,7 +68,7 @@ def register_options(parser):
 
 if __name__ == '__main__':
     
-    parser = OptionParser()
+    parser = OptionParser(description='''Main script. Performs a road pricing experiment.''')
     
     register_options(parser)
     

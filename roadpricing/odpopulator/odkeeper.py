@@ -9,6 +9,8 @@ The origins and destinations of inserted vehicles respect a given OD matrix.
 When imported, the user can use the ODKeeper methods act and replace
 vehicles in the road network
 
+This script requires the search module available at maslab-googlecode
+
 Created on Jan 12, 2013
 
 @author: anderson

@@ -1,10 +1,14 @@
 '''
+This script reads a SUMO .rou.xml file and writes a .drv file for use
+in road pricing experiments. Drivers in the resulting .drv file will
+have origin, destination and depart times extracted from the .rou.xml
+and preference assigned according to a generator specified by the user.
+
 Created on Feb 16, 2013
 
 @author: anderson
 
 '''
-
 import sys
 import random
 from optparse import OptionParser
@@ -50,7 +54,7 @@ pref_generators = {
 }
 
 if __name__ == '__main__':
-    parser = OptionParser()
+    parser = OptionParser(description='''Reads a .rou.xml file and generates a .drv file with driver information for a road pricing experiment.''')
         
     parser.add_option(
         '-o', '--output', type='str', default='out.drv',

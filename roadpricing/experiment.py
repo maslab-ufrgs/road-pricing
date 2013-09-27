@@ -1,3 +1,9 @@
+'''
+This module contains the Experiment class which actually executes a
+road pricing experiment
+
+'''
+
 import drivers
 from auxiliaryload import DynamicLoadController
 import sumolib
@@ -14,6 +20,13 @@ import odpopulator
 import edgedata
 
 class Experiment(object):
+    '''
+    Executes a road pricing experiment. 
+    
+    Receives several experiment parameters and executes all iterations,
+    writing all statistics.
+    
+    '''
     
     _drivers = []
     _road_network = None

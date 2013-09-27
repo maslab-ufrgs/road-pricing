@@ -1,4 +1,7 @@
 '''
+This auxiliary script prepares a series of config files
+to test different values of the learning rate for the QLearningLinkManagers 
+
 Created on Jul 11, 2013
 
 @author: anderson

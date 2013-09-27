@@ -1,9 +1,11 @@
 '''
+Provides a parser to the xml file with experiment configurations
+
 Created on Feb 1, 2013
 
 @author: anderson
-'''
 
+'''
 import os
 import xml.etree.ElementTree as ET
 

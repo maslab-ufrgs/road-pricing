@@ -10,6 +10,8 @@ Each vehicle is inserted according to a given OD matrix.
 When imported, the user can use the ODKeeper methods to control the load
 and insert vehicles in the road network
 
+This script requires the search module available at maslab-googlecode
+
 Created on Jan 3, 2013
 
 @author: anderson

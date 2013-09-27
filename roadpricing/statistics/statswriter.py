@@ -1,4 +1,6 @@
 '''
+Provides a class to write statistics of a simulation
+
 Created on Oct 6, 2012
 
 @author: anderson
@@ -9,8 +11,8 @@ from string import rstrip
 class StatsWriter(object):
     '''
     Default statistics writer
+    
     '''
-
     outFile = None#the output outFile to write stats into
     
     def __init__(self, filename, mode = 'a'):
@@ -23,6 +25,7 @@ class StatsWriter(object):
         '''
         Writes dataName as the first column, then traverses the collection, 
         calling attrCall() and writing it separated by 'separator' parameter
+        
         '''
         line = str(dataName) + separator
         

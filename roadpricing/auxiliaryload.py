@@ -1,3 +1,12 @@
+'''
+DEPRECATED
+
+Provides a class that inserts vehicles in the simulation until the load reaches
+the desired level.
+
+It requires the search module available at maslab-googlecode
+
+'''
 import random
 import traci
 import sys, os
