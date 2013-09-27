@@ -1,7 +1,12 @@
 '''
+This modules performs basic testing of QLearningLinkManager
+regarding the configuration of parameters and the decrease
+of epsilon along the episodes
+
 Created on Mar 21, 2013
 
 @author: anderson
+
 '''
 import unittest
 import sys

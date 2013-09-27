@@ -1,12 +1,20 @@
 '''
+This script tests the deprecated DynamicLoadController.
+
+It does not creates a SUMO simulation. Instead, it uses the sumo-mockup project
+to "emulate" a simulation. Files of sumo-mockup must be installed.
+
+sumo-mockup project can be checked out at: maslab-sumo project in google code
+
 Created on Nov 25, 2012
 
 @author: anderson
+
 '''
 import unittest
 import traci
 from sumomockup.tracipatch import TraCIReplacement
-from roadnetpatch import MyRoadNetwork
+from sumomockup.roadnetpatch import MyRoadNetwork
 
 import sys,os
 sys.path.append(os.path.join('..','roadpricing'))
