@@ -169,7 +169,7 @@ class LinkManager(object):
         #prevents division by zero
         if len(alternatives) == 0:
             return 0.5
-        return sum([m.occupancy for m in alternatives]) / len(alternatives)
+        return sum([m.occupancy for m in alternatives]) / float(len(alternatives))
     
     @property             
     def occupancy(self):

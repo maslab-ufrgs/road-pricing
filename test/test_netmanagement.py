@@ -7,7 +7,7 @@ import sys
 import os
 import unittest
 import traci
-from roadnetpatch import MyRoadNetwork, MyEdge
+from sumomockup.roadnetpatch import MyRoadNetwork, MyEdge
 
 #TODO remove this by installing the module in PYTHONPATH
 sys.path.append(os.path.join('..','roadpricing'))
@@ -65,12 +65,16 @@ class Test(unittest.TestCase):
         road_net = MyRoadNetwork()
         self._net_mgr = NetworkManager(road_net, GreedyLinkManager)
         
-        e3 = self._net_mgr.manager_of_link(road_net.getEdge('e3'))
         e2 = self._net_mgr.manager_of_link(road_net.getEdge('e2'))
+        e3 = self._net_mgr.manager_of_link(road_net.getEdge('e3'))
         
-        e3._price = 70
         e2._price = 50
+        e3._price = 70
         
+        e2._average_occupancy = 0.5
+        e3._average_occupancy = 0.3
+        
+        #print e2, e2._average_occupancy
         #as e2 is more occupied, it should raise its price to 80
         e2.commute_finished_action()
         self.assertEquals(80, e2.next_commute_price)
@@ -104,11 +108,14 @@ class Test(unittest.TestCase):
         road_net = MyRoadNetwork()
         self._net_mgr = NetworkManager(road_net, IncrementalLinkManager)
         
-        e3 = self._net_mgr.manager_of_link(road_net.getEdge('e3'))
         e2 = self._net_mgr.manager_of_link('e2') #tests manager_of_link with str parameter
+        e3 = self._net_mgr.manager_of_link(road_net.getEdge('e3'))
         
-        e3._price = 70
         e2._price = 50
+        e3._price = 70
+        
+        e2._average_occupancy = 0.5
+        e3._average_occupancy = 0.3
         
         #as e2 is more occupied, it should raise its price to 60
         e2.commute_finished_action()
