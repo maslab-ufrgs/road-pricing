@@ -8,8 +8,8 @@ import os
 import sys
 import traci
 import StringIO
-from roadnetpatch import MyEdge, MyRoadNetwork
-import tracipatch
+from sumomockup.roadnetpatch import MyEdge, MyRoadNetwork
+import sumomockup.tracipatch as tracipatch
 
 #TODO remove this by installing the module in PYTHONPATH
 sys.path.append(os.path.join('..','roadpricing'))
@@ -26,7 +26,10 @@ class Test(unittest.TestCase):
         
         traci.route.add = my_traci_route_add
         traci.vehicle.add = my_traci_vehicle_add
-
+        
+        #netpatch = 
+        patch = tracipatch.TraCIReplacement(MyRoadNetwork())
+        patch.perform_patch()
 
     def test_driver_creation_with_wrong_pref(self):
         '''
@@ -188,7 +191,6 @@ class Test(unittest.TestCase):
         
         newtraci.set_edge_for_vehicle('e1', 'v1')
         newtraci.set_edge_length('e1', 100)
-        
         d.on_depart()
         
         for i in range(0, 10):
@@ -391,20 +393,21 @@ class Test(unittest.TestCase):
         id2 orig2 dest2 5 1
         
         '''
+        
+        road_net =  MyRoadNetwork()
 
-        drivers = parse_drivers('input.test')
+        drivers = parse_drivers('input.test', road_net)
+        self.assertEquals('id1', drivers[0].driver_id)
+        self.assertEquals(road_net.getEdge('e1'), drivers[0].origin)
+        self.assertEquals(road_net.getEdge('e3'), drivers[0].destination)
+        self.assertEquals(0, drivers[0].depart_time)
+        self.assertEquals(0.5, drivers[0].preference)
         
-        self.assertEquals('id1', drivers[0]['id'])
-        self.assertEquals('orig1', drivers[0]['origin'])
-        self.assertEquals('dest1', drivers[0]['destination'])
-        self.assertEquals(0, drivers[0]['depart'])
-        self.assertEquals(0.5, drivers[0]['preference'])
-        
-        self.assertEquals('id2', drivers[1]['id'])
-        self.assertEquals('orig2', drivers[1]['origin'])
-        self.assertEquals('dest2', drivers[1]['destination'])
-        self.assertEquals(5, drivers[1]['depart'])
-        self.assertEquals(1, drivers[1]['preference'])
+        self.assertEquals('id2', drivers[1].driver_id)
+        self.assertEquals(road_net.getEdge('e2'), drivers[1].origin)
+        self.assertEquals(road_net.getEdge('e4'), drivers[1].destination)
+        self.assertEquals(5, drivers[1].depart_time)
+        self.assertEquals(1, drivers[1].preference)
         
         
     def test_kb_saver(self):
