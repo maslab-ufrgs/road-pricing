@@ -17,6 +17,13 @@ sys.path.append(os.path.join('..','roadpricing'))
 from drivers import Driver, parse_drivers, KBSaver, KBLoader
 
 class Test(unittest.TestCase):
+    '''
+    This class uses a simulated traci server to test
+    some aspects of the Driver class. In some places, 
+    travel time is divided by 1000 and speed is multiplied by 1000
+    to comply with SUMO time units
+    
+    '''
     
     def setUp(self):
         '''
@@ -122,8 +129,14 @@ class Test(unittest.TestCase):
         #in MyRoadNetwork, length is 100 and speed is 10 for all edges
         #drivers init price as 50
         #with pref = 1, drivers care about travel time
+        #travel time is normalized: known_tt / 3*fftt, where fftt is the 
+        #free-flow travel time of the edge 
+        
         for e in road_net.getEdges():
-            self.assertEqual(10, d.edge_cost(e))
+            #print e.getLength(), e.getSpeed()
+            norm_tt = 10 / (3.0 * (e.getLength() / e.getSpeed()))
+            #driver multiplies normalized travel time by 100
+            self.assertAlmostEqual(norm_tt * 100 , d.edge_cost(e), None, None, .000001)
         
         #with pref = 1, drivers care about credit expenditure    
         d._preference = 0
@@ -146,7 +159,7 @@ class Test(unittest.TestCase):
         
         #sets preference to 1 (consider travel time) and tests perceived cost
         d._preference = 1
-        self.assertEqual(20, d.perceived_trip_cost)
+        self.assertEqual(20000, d.perceived_trip_cost)
         
         #sets preference to 0 (expenditure) and tests perceived cost
         d._preference = 0
@@ -224,6 +237,7 @@ class Test(unittest.TestCase):
         '''
         road_net = MyRoadNetwork()
         edges = road_net.getEdges()
+        norm_factor = 100 #factor that driver uses to normalize travel times
         
         #creates traci surrogate and patches the actual traci
         newtraci = tracipatch.TraCIReplacement(road_net)
@@ -287,9 +301,9 @@ class Test(unittest.TestCase):
             
         #tests if driver stored the traversed distance & travel time
         #also checks if it is calculating speed properly 
-        self.assertEquals(10, d.travel_time)
+        self.assertEquals(10, d.travel_time / 1000)
         self.assertEquals(100, d.traversed_distance)
-        self.assertEquals(10, d.average_speed)
+        self.assertEquals(10, d.average_speed * 1000)
         
         #steps again, set new position for v1 and checks variables
         traci.simulationStep() #d's travel time is 11 now
@@ -297,10 +311,10 @@ class Test(unittest.TestCase):
         d.on_timestep()
         self.assertEquals('e2', d._last_timestep_edge_id)
         self.assertEquals('e2', d._current_edge_id)
-        self.assertEquals(11, d.travel_time)
+        self.assertEquals(11, d.travel_time / 1000)
         self.assertEquals(100, d._length_of_traversed_edges)
         self.assertEquals(110, d.traversed_distance)
-        self.assertEquals(10, d.average_speed)
+        self.assertEquals(10, d.average_speed * 1000)
         
         #steps 8 timesteps more, spending a total of 9 in e2
         for i in range(0,8):
@@ -346,7 +360,7 @@ class Test(unittest.TestCase):
         self.assertEqual(130000, newtraci.ticks())
             
         #d's travel time is 30 now
-        self.assertEqual(30, d.travel_time)
+        self.assertEqual(30, d.travel_time / 1000)
         
         #checks if d has stored information about e4:
         self.assertEquals(10, d.known_travel_time('e4'))
@@ -359,8 +373,8 @@ class Test(unittest.TestCase):
         #checks final values
         self.assertEqual(300, d.traversed_distance)
         self.assertEquals(300, d._length_of_traversed_edges)
-        self.assertEqual(30, d.travel_time)
-        self.assertEqual(10, d.average_speed)
+        self.assertEqual(30, d.travel_time / 1000)
+        self.assertEqual(10, d.average_speed * 1000)
         self.assertEqual(None, d._current_edge_id)
         
         #perform 100 more timesteps (driver statistics should not change)
@@ -373,8 +387,8 @@ class Test(unittest.TestCase):
         
         #checks if final values haven't changed
         self.assertEqual(300, d.traversed_distance)
-        self.assertEqual(30, d.travel_time)
-        self.assertEqual(10, d.average_speed)
+        self.assertEqual(30, d.travel_time / 1000)
+        self.assertEqual(10, d.average_speed * 1000)
         self.assertEqual(None, d._current_edge_id)
         
         self.assertEquals(10, d.known_travel_time('e1'))

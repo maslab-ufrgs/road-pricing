@@ -467,8 +467,7 @@ class Driver(object):
         Returns the driver's speed in m/s
         
         '''
-        
-        return self.traversed_distance / self.travel_time
+        return float(self.traversed_distance) / self.travel_time
     
     @property
     def traversed_distance(self):
@@ -489,7 +488,7 @@ class Driver(object):
     @property
     def travel_time(self):
         '''
-        Returns the time, in seconds, that this driver spent on trip
+        Returns the time, in SUMO time units, that this driver spent on trip
         
         '''
         
