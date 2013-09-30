@@ -1,4 +1,6 @@
 '''
+Tests the new_average function from gendrvdata.
+
 Created on 22/02/2013
 
 @author: artavares
