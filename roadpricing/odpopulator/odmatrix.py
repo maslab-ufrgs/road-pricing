@@ -144,7 +144,19 @@ class ODMatrix(object):
             lambda dest: dest['numtrips']
         )
         return [origin_taz, self.find(dest_taz_dict['name'])]
+    
+    def incoming_trips(self, taz_id):
+        '''
+        return: the number of trips that ends in the given TAZ
+        :rtype: int
         
+        '''
+        itrips = 0
+        for otaz in self.all_taz():
+            if taz_id in otaz.destinations:
+                itrips += otaz.destinations[taz_id]
+        
+        return itrips
     
     def find(self, taz_id):
         '''
